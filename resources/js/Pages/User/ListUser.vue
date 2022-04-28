@@ -28,7 +28,7 @@ defineProps({
                 <th>{{ user.email }}</th>
                 <td>
                     <Link :href="`/user/${user.id}/edit`" class="btn btn-warning">Edit</Link>
-                    <a href="" class="btn btn-error">Delete</a>
+                    <Link :href="`/user/${user.id}`" method="delete" class="btn btn-error">Delete</Link>
                 </td>
             </tr>
         </tbody>
