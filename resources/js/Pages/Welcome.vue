@@ -1,4 +1,5 @@
 <script setup>
+import {Link} from "@inertiajs/inertia-vue3"
 
 defineProps(
     {
@@ -9,5 +10,5 @@ defineProps(
 
 <template>
     <h1>Hello Inertia, I'm {{ name }}</h1>
-    <inertia-link :href="`/user`" class="btn btn-primary">Go To Demo</inertia-link>
+    <Link :href="`/user`" class="btn btn-primary">Go To Demo</Link>
 </template>
