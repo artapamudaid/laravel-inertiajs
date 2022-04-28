@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Inertia\Inertia;
 
 class UserController extends Controller
@@ -30,7 +31,9 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render(
+            'User/CreateUser'
+        );
     }
 
     /**
@@ -41,7 +44,13 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
+
+        return redirect()->route('user.index');
     }
 
     /**

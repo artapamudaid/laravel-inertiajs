@@ -1,4 +1,7 @@
 <script setup>
+
+import {Link} from "@inertiajs/inertia-vue3"
+
 defineProps({
     users: Object,
 })
@@ -6,10 +9,10 @@ defineProps({
 
 <template>
     
-<div class="max-w-6xl m-auto mt-10">
-    <div class="overflow-x-auto">
+<div class="max-w-7xl mx-20 mt-10">
+    <Link :href="`/user/create`" class="btn btn-success">+ Add User</Link>
+    <div class="overflow-x-auto mt-5">
         <table class="table w-full">
-        <!-- head -->
         <thead>
             <tr>
             <th></th>
@@ -24,7 +27,7 @@ defineProps({
                 <th>{{ user.name }}</th>
                 <th>{{ user.email }}</th>
                 <td>
-                    <a href="" class="btn btn-warning">Edit</a>
+                    <Link :href="`/user/${user.id}/edit`" class="btn btn-warning">Edit</Link>
                     <a href="" class="btn btn-error">Delete</a>
                 </td>
             </tr>
