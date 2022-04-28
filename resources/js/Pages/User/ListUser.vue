@@ -1,16 +1,20 @@
 <script setup>
+import { Inertia } from "@inertiajs/inertia"
 
-import {Link} from "@inertiajs/inertia-vue3"
 
 defineProps({
     users: Object,
 })
+
+function deleteUser (id) {
+    Inertia.delete(`/user/${id}`)
+}
 </script>
 
 <template>
     
 <div class="max-w-7xl mx-20 mt-10">
-    <Link :href="`/user/create`" class="btn btn-success">+ Add User</Link>
+    <inertia-link :href="`/user/create`" class="btn btn-success">+ Add User</inertia-link>
     <div class="overflow-x-auto mt-5">
         <table class="table w-full">
         <thead>
@@ -27,8 +31,8 @@ defineProps({
                 <th>{{ user.name }}</th>
                 <th>{{ user.email }}</th>
                 <td>
-                    <Link :href="`/user/${user.id}/edit`" class="btn btn-warning">Edit</Link>
-                    <Link :href="`/user/${user.id}`" method="delete" class="btn btn-error">Delete</Link>
+                    <inertia-link :href="`/user/${user.id}/edit`" class="btn btn-warning">Edit</inertia-link>
+                    <button @click.prevent="deleteUser(`${user.id}`)" method="delete" class="btn btn-error">Delete</button>
                 </td>
             </tr>
         </tbody>
