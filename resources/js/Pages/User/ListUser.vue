@@ -23,7 +23,10 @@ defineProps({
                 <th>{{ index + 1 }}</th>
                 <th>{{ user.name }}</th>
                 <th>{{ user.email }}</th>
-                <td></td>
+                <td>
+                    <a href="" class="btn btn-warning">Edit</a>
+                    <a href="" class="btn btn-error">Delete</a>
+                </td>
             </tr>
         </tbody>
         </table>
