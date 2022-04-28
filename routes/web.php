@@ -3,6 +3,7 @@
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Http;
+use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +17,7 @@ use Illuminate\Support\Facades\Http;
 */
 
 Route::get('/', function () {
-    return \Inertia\Inertia::render('Welcome', [
+    return Inertia::render('Welcome', [
         'name' => 'Arta Tri Pamuda'
     ]);
 });
