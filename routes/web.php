@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return \Inertia\Inertia::render('Welcome');
+    return \Inertia\Inertia::render('Welcome', [
+        'name' => 'Arta Tri Pamuda'
+    ]);
 });
+
+Route::resource('user', UserController::class);
